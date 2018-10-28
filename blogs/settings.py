@@ -1,8 +1,10 @@
 from django.conf import settings as project_settings
 
+
 class BlogSettings(object):
     def __init__(self):
         pass
+
 
 settings = BlogSettings()
 

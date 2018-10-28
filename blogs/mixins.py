@@ -1,6 +1,7 @@
 from django.core.exceptions import PermissionDenied
 from .models import Author
 
+
 class AuthorRequiredMixin:
     """
     Checks if the current user is an author
@@ -12,5 +13,5 @@ class AuthorRequiredMixin:
                 return super().dispatch(request, *args, **kwargs)
             else:
                 raise PermissionDenied
-        except Author.DoesNotExist: # pragma: no cover
-            raise PermissionDenied        
+        except Author.DoesNotExist:  # pragma: no cover
+            raise PermissionDenied

@@ -1,8 +1,10 @@
 from setuptools import setup, find_packages
 from blogs import __version__
 
+
 def readfile(filename):
     return open(filename, 'r').read()
+
 
 print(__version__)
 long_description = readfile('README.md')
@@ -30,4 +32,4 @@ setup(
     install_requires=[
         'django>=2.0'
     ]
-    )
+)

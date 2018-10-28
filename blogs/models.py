@@ -5,6 +5,7 @@ from django.dispatch import receiver
 
 User = getattr(settings, 'AUTH_USER_MODEL', 'auth.User')
 
+
 class Post(models.Model):
     uuid = models.UUIDField(primary_key=True)
     author = models.CharField(max_length=256)

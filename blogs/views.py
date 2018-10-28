@@ -31,6 +31,7 @@ class BlogHomeView(View):
             **common_context,
         })
 
+
 class NewBlogView(LoginRequiredMixin, AuthorRequiredMixin, View):
 
     def get(self, request):
@@ -41,6 +42,7 @@ class NewBlogView(LoginRequiredMixin, AuthorRequiredMixin, View):
             content="<p>Click to edit body</p>"
         )
         return redirect('blogs:edit', uuid=post.uuid)
+
 
 class BlogEditView(LoginRequiredMixin, AuthorRequiredMixin, View):
 
@@ -72,6 +74,7 @@ class BlogEditView(LoginRequiredMixin, AuthorRequiredMixin, View):
         post.save()
         return HttpResponse(status=200)
 
+
 class BlogDraftView(LoginRequiredMixin, AuthorRequiredMixin, View):
 
     def get(self, request):
@@ -88,6 +91,7 @@ class BlogDraftView(LoginRequiredMixin, AuthorRequiredMixin, View):
             **common_context,
         })
 
+
 class BlogReadView(View):
 
     def get(self, request, slug):
@@ -100,6 +104,7 @@ class BlogReadView(View):
             'post': post,
             **common_context
         })
+
 
 class BlogPublishView(LoginRequiredMixin, AuthorRequiredMixin, View):
 
@@ -115,6 +120,7 @@ class BlogPublishView(LoginRequiredMixin, AuthorRequiredMixin, View):
         ])
         post.save()
         return redirect("blogs:read", slug=post.slug)
+
 
 class BlogDeleteView(LoginRequiredMixin, AuthorRequiredMixin, View):
 
